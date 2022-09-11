@@ -14,29 +14,15 @@ public class Main {
             }
             reader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("an error occured.");
+            System.out.println("an error occurred.");
             e.printStackTrace();
         }
 
-
-        for (String irasas : stringList) {
-//            System.out.println(irasas);
-//            System.out.println("____");
-            if (filterString(irasas) >= 10) {
-                System.out.println(irasas);
+        for (String entry : stringList) {
+            if (filterString(entry) >= 10) {
+                System.out.println(entry);
             }
 
-        }
-    }
-
-    static void isGreaterThan10(String str) {
-        str = str.replaceAll("[^\\d]", " ");
-        str = str.trim();
-        str = str.replaceAll(" +", " ");
-        ArrayList<Character> charList = new ArrayList<>();
-        char number;
-        for (int i = 0; i < str.length(); i++) {
-            System.out.println(i);
         }
     }
 
@@ -47,23 +33,19 @@ public class Main {
                 String a = String.valueOf(c[i]);
                 String b = String.valueOf(c[i - 1]);
                 String sum = a + b;
-                int arNeNulis = Integer.parseInt((b));
+                int isNotZero = Integer.parseInt((b));
 
-                if (arNeNulis != 0) {
-                   String adjustedSum = reverseIfNumberIsTen(sum);
-                    int number = Integer.parseInt(adjustedSum);
-                    return number;
+                if (isNotZero != 0) {
+                    String adjustedSum = reverseIfNumberIsTen(sum);
+                    return Integer.parseInt(adjustedSum);
                 }
-
-
             }
-
         }
         return 0;
     }
 
     static String reverseIfNumberIsTen(String sum) {
-        if (sum.equals("01")){
+        if (sum.equals("01")) {
             StringBuilder sb = new StringBuilder(sum);
             sb.reverse();
             return sb.toString();
